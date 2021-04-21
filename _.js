@@ -43,6 +43,17 @@ const _={
         const isInRange = number >= start && number < end ; 
         return isInRange;
     },
+    words(string){
+        /* 
+        .words() takes an argument of type string and splits it into an array of words,
+        delimited by space ' ' and returns that array. 
+
+        I plan to define a variable to save the array of strings. save the results
+        of string.split(' ').
+        */
+        const words=string.split(' ')
+        return words;
+    },
 };
 
 
