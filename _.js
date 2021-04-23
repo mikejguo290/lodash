@@ -78,7 +78,25 @@ const _={
         }else{
             return string; 
         }
-    }
+    },
+    has(obj, key){
+        /*
+        takes two args. an object and a key
+        ckecks if object has a value at the specified key
+        will return true if there is a value at key, false if not.
+        unlike lodash.has(), this will not accept additional path parameter; will only check for
+        unnested values. 
+        will also have to return false if the object hasn't got the property key. 
+        */
+        
+        let hasValue = false; // default is false, only set to true if key and key:value exists. 
+        if(obj.hasOwnProperty(key)){
+            hasValue = obj.key!==undefined? true: false;
+        }
+
+        return hasValue;
+
+    },
 };
 
 
