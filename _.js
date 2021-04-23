@@ -97,6 +97,22 @@ const _={
         return hasValue;
 
     },
+
+    invert(obj){
+        /*
+        invert creates a new object from an object by invertings its key:value pairs.  The keys and values are swapped around.
+        */
+        /* 
+        my plan is to use object.entries() to create an array of key:val pairs , then, create a new object with .fromEntries method.
+        Object.entries(obj) is a static method!
+        */
+        const invertedObj={};
+        for (const [key, val] of Object.entries(obj)){
+            invertedObj[val]=key;
+        }
+        return invertedObj;
+
+    },
 };
 
 
