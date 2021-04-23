@@ -149,7 +149,14 @@ const _={
        
        My plan is to find the modulus of the length of the array. then get the factor * size = array.length-remainder
        Once the number of chunks is determined. I shall go about adding slices to the array of chunks. 
-       last slice will only require a start index to set
+       last slice will only require a start index to set.
+
+       CodeCademy answer - for loops can skip! and .slice() will use array.length instead of an out of bounds index!
+       for (let i=0; i<array.length ; i+=size){
+           chunkValue=array.slice(i, i+size);
+           chunkArray.push(chunkValue);
+       }
+       
        */
 
        const remainder=array.length%size;
