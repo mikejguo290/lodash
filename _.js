@@ -54,6 +54,31 @@ const _={
         const words=string.split(' ')
         return words;
     },
+    pad(string, length){
+        /* 
+        pad takes in two args: a string and a length. 
+        pad adds spaces evenly to both sides of the string to make it reach the desired length.
+        extra padding is added to the end of the string if an odd amount of padding is required to reach the required length.        
+        returns a final string.
+        */
+        
+        // test if string.length is even, if so add half of length-string.length to either side of string
+        // if odd, add rounded up amount of half of length-string.length to the end, and regular amount to the start.
+        // always round down padding whilst round
+       
+        if (string.length<length){
+            const padding=(length-string.length)/2;
+            const frontPaddingLength=Math.floor(padding)
+            const backPaddingLength=length-string.length-frontPaddingLength;
+            // should ensure frontPadding always rounds down. 
+            // use frontPadding as a variable to determine back padding.this should mean both add up to 1 when there is just one unit of difference!
+            // drop the logic number is even test as it would be redundant given the set up of the variables.
+            let paddedString=' '.repeat(frontPaddingLength)+string+' '.repeat(backPaddingLength);
+            return paddedString;
+        }else{
+            return string; 
+        }
+    }
 };
 
 
