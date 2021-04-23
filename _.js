@@ -132,6 +132,17 @@ const _={
         }
         return undefined // undefined by default, if the value is not found in the for loop, 
     },
+    drop(array, n=1){
+        /* 
+        .drop() takes two arguments - an array and a number 
+        it returns a new array with a slice of the old array with n elements dropped from the beginning. 
+        is no value for n is provided, the default number of elements dropped is n. 
+        My plan is to use array.slice(n,)
+        */
+        const droppedArray=array.slice(n);
+        return droppedArray;
+    },
+   
 };
 
 
