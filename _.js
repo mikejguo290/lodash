@@ -142,6 +142,35 @@ const _={
         const droppedArray=array.slice(n);
         return droppedArray;
     },
+    dropWhile(array, predicate){
+        /*
+        dropWhile() takes two arguments. an array and a predicate function. The predicate function takes three arguments, 
+        the current element, the current element index and the whole array. 
+        dropWhile() returns a slice of the old array, dropping elements from the beginning of the original until the value that enables 
+        the predicate function to return a falsy value. 
+
+        My plan is to iterate the array until the predicate function returns a falsy value, at which point return 
+        the array slice with the iteration number as starting value of slice. 
+
+        Codecademy used findIndex method, coupled with this.drop() method defined earlier
+        let dropNumber=array.findIndex((array[i],i)=>{
+            return !predicate(array[i], i, array) // invert predicate return because findIndex returns values associated with truthy return.
+        });
+        const newArray=this.drop(array, dropNumber)
+        return newArray;
+        */
+        let startingIndex=array.length; // default startingIndex would generate a blank array. 
+        for (let i=0; i<array.length; i++){
+            if (predicate(array[i], i, array)===false){
+                startingIndex=i;
+                return array.slice(startingIndex);
+            }
+        }
+        // what to return if predicate never returns false? returns a blank array because all elements are dropped.
+        return array.slice(startingIndex);
+    
+
+    },
    chunk(array, size=1){
        /*
        .chunk() splits an array into an array of arrays. Each smaller array, the chunk, will be of size number of elements. 
