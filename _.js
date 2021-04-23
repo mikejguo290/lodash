@@ -142,7 +142,35 @@ const _={
         const droppedArray=array.slice(n);
         return droppedArray;
     },
-   
+   chunk(array, size=1){
+       /*
+       .chunk() splits an array into an array of arrays. Each smaller array, the chunk, will be of size number of elements. 
+       if the split isn't even. then the final chunk will contain the remaining elements.
+       
+       My plan is to find the modulus of the length of the array. then get the factor * size = array.length-remainder
+       Once the number of chunks is determined. I shall go about adding slices to the array of chunks. 
+       last slice will only require a start index to set
+       */
+
+       const remainder=array.length%size;
+       const factor=(array.length-remainder)/size;
+       const chunkArray=[]
+       let i=0
+       let start=0 // initial index of slice start;
+       let end=size; // initial index of slice end;
+       while (i<factor){
+        chunkArray.push(array.slice(start,end))
+        start+=size; // shift start index by size number of places.
+        end+=size; // shift end index by same amount. 
+        i++
+       }
+       // once the regular size chunks are finished. add the remainder chunk into array of chunks.
+       if (remainder!==0){
+           chunkArray.push(array.slice(start));
+           return chunkArray;
+       }
+       return chunkArray;
+   },
 };
 
 
