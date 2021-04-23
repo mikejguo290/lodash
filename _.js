@@ -113,6 +113,25 @@ const _={
         return invertedObj;
 
     },
+    findKey(obj, predicate){
+        /* 
+        takes in an object and a predicate function, which returns a boolean value. 
+        it iterates through the key:value pair within the object and calls the predicate function with the value.
+        it returns the first key for which value the predicate function returns true.
+        if no values return truthy, returns undefined
+        */
+        for (const key in obj){
+            
+            const val=obj[key];
+            predicateReturnValue=predicate(val);
+            
+            if(predicateReturnValue===true){
+                return key // stop iterating , immediately return key if value is found. would not execute last return. 
+            }
+            
+        }
+        return undefined // undefined by default, if the value is not found in the for loop, 
+    },
 };
 
 
